@@ -155,7 +155,19 @@ if ('serviceWorker' in navigator) {
       // [START_EXCLUDE]
       // In many cases once an app has been granted notification permission, it
       // should update its UI reflecting this.
-
+        messaging.getToken().then(function(refreshedToken) {
+          console.log('Token refreshed.'+refreshedToken);
+          // Indicate that the new Instance ID token has not yet been sent to the
+          // app server.
+          // Send Instance ID token to app server.
+          sendTokenToServer(refreshedToken);
+          // [START_EXCLUDE]
+          // Display new Instance ID token and clear UI of all previous messages.
+          // [END_EXCLUDE]
+        }).catch(function(err) {
+          console.log('Unable to retrieve refreshed token ', err);
+          showToken('Unable to retrieve refreshed token ', err);
+        });
       // [END_EXCLUDE]
     }).catch(function(err) {
       console.log('Unable to get permission to notify.', err);
