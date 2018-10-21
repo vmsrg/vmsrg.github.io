@@ -77,6 +77,14 @@ if ('serviceWorker' in navigator) {
 </script>
 
 <script>
+    
+  var config = {
+    apiKey: "AIzaSyAZt214jgmc-RB-5yG_VJUXQuZHxJ3Lnkk",
+    projectId: "pushtest-3ef6f",
+    messagingSenderId: "1089679429141"
+  };
+  firebase.initializeApp(config);
+    
   // [START get_messaging_object]
   // Retrieve Firebase Messaging object.
   const messaging = firebase.messaging();
